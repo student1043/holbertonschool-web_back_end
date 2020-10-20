@@ -12,7 +12,7 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     Test file for printing the correct output of the wait_n coroutine
     '''
     delay = [
-        wait_random(max_delay) for i in range(n)
+        task_wait_random(max_delay) for i in range(n)
     ]
     results = []
     for next_to_complete in asyncio.as_completed(delay):
