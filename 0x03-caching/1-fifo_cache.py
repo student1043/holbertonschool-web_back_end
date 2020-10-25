@@ -5,8 +5,9 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """ FIFO """
+
     def __init__(self):
-        """ constructor """
+        """ FIFO """
         super().__init__()
         self.tab = []
 
@@ -26,7 +27,6 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """ FIFO """
-        if key not in self.cache_data:
-            return None
-        else:
+        if key in self.cache_data:
             return self.cache_data[key]
+        return None
