@@ -18,7 +18,7 @@ class FIFOCache(BaseCaching):
                 self.cache_data[key] = item
                 self.tab.remove(key)
             else:
-                if len(self.cache_data) > self.MAX_ITEMS - 1:
+                if len(self.cache_data) >= self.MAX_ITEMS:
                     del self.cache_data[self.tab[0]]
                     print("DISCARD: {}".format(self.tab[0]))
                     self.tab.pop(0)
