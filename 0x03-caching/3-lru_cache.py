@@ -39,5 +39,7 @@ class LRUCache(BaseCaching):
         LRU GET
         """
         if key in self.cache_data:
+            self.queue.remove(key)
+            self.queue.append(key)
             return self.cache_data[key]
         return None
