@@ -19,6 +19,7 @@ class LFUCache(BaseCaching):
         """
         super().__init__()
         self.queue = []
+        self.tracking = []
 
     def put(self, key, item):
         """
@@ -30,11 +31,13 @@ class LFUCache(BaseCaching):
                 self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    print("DISCARD:", self.queue.index(Counter(self.queue).most_common()[:-1:3]))
-                    save = self.queue.pop(self.queue.index(Counter(self.queue).most_common()[:-1:3]))
+                    print("DISCARD:", (Counter(self.tracking).most_common()[0][0]))
+                    save = self.queue.pop(self.queue.index(Counter(self.tracking).most_common()[0][0]))
                     del self.cache_data[save]
+                    self.tracking.pop(self.tracking.index(Counter(self.tracking).most_common()[0][0]))
                 self.cache_data[key] = item
             self.queue.append(key)
+            self.tracking.append(key)
 
     def get(self, key):
         """
