@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ FIFO """
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -27,7 +28,6 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """ FIFO """
-        if key not in self.cache_data:
-            return None
-        else:
+        if key in self.cache_data:
             return self.cache_data[key]
+        return None
