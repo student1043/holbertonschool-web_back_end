@@ -10,20 +10,20 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """ FIFO """
         super().__init__()
-        self.mylisting = []
+        self.queue = []
 
     def put(self, key, item):
         """ FIFO """
         if key is not None and item is not None:
-            self.mylisting.append(key)
+            self.queue.append(key)
             if key in self.cache_data:
                 self.cache_data[key] = item
-                self.mylisting.remove(key)
+                self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    del self.cache_data[self.mylisting[0]]
-                    print("DISCARD:", self.mylisting[0])
-                    self.mylisting.pop(0)
+                    del self.cache_data[self.queue[0]]
+                    print("DISCARD:", self.queue[0])
+                    self.queue.pop(0)
                 self.cache_data[key] = item
 
     def get(self, key):
