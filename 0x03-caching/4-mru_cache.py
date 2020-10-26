@@ -28,8 +28,8 @@ class MRUCache(BaseCaching):
                 self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    print("DISCARD:", self.queue[-1])
-                    save = self.queue.pop(-1)
+                    print("DISCARD:", self.queue[len(self.queue) - 1])
+                    save = self.queue.pop(len(self.queue) - 1)
                     del self.cache_data[save]
                 self.cache_data[key] = item
             self.queue.append(key)
