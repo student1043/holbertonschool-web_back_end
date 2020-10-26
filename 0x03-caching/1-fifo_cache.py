@@ -1,33 +1,38 @@
 #!/usr/bin/python3
-""" FIFO """
+""" FIFOCache """
 
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFO """
+    """ FIFOCache Class """
 
     def __init__(self):
-        """ FIFO """
+        """ constructor """
         super().__init__()
-        self.mylisting = []
+        self.order = []
 
     def put(self, key, item):
-        """ FIFO """
+        """
+        assign to the dictionary self.cache_data
+        the item value for the key key
+        """
         if key is not None and item is not None:
-            self.mylisting.append(key)
+            self.order.append(key)
             if key in self.cache_data:
                 self.cache_data[key] = item
-                self.mylisting.remove(key)
+                self.order.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    del self.cache_data[self.mylisting[0]]
-                    print("DISCARD:", self.mylisting[0])
-                    self.mylisting.pop(0)
+                    del self.cache_data[self.order[0]]
+                    print("DISCARD:", self.order[0])
+                    self.order.pop(0)
                 self.cache_data[key] = item
 
     def get(self, key):
-        """ FIFO """
+        """
+        return the value of key in self.cache_data
+        """
         if key in self.cache_data:
             return self.cache_data[key]
         return None
