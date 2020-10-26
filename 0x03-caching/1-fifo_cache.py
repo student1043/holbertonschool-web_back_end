@@ -1,19 +1,27 @@
 #!/usr/bin/python3
-""" FIFO """
+"""
+FIFO Task
+"""
 
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFO """
+    """
+    FIFO Class
+    """
 
     def __init__(self):
-        """ FIFO """
+        """
+        FIFO Testing
+        """
         super().__init__()
         self.queue = []
 
     def put(self, key, item):
-        """ FIFO """
+        """
+        FIFO Tester
+        """
         if key is not None and item is not None:
             self.queue.append(key)
             if key in self.cache_data:
@@ -27,7 +35,9 @@ class FIFOCache(BaseCaching):
                 self.cache_data[key] = item
 
     def get(self, key):
-        """ FIFO """
+        """
+        FIFO GET
+        """
         if key in self.cache_data:
             return self.cache_data[key]
         return None
