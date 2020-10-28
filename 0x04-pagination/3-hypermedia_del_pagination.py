@@ -41,6 +41,9 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
             """
             Getting Hyper Index
+            Trying to fix these errors
+            before deadline
+            hope it works!
             """
             assert (isinstance(index, int)
                     and index in range(len(self.__indexed_dataset)))
