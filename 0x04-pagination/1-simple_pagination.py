@@ -43,5 +43,3 @@ class Server:
         myindexing = index_range(page, page_size)
         self.dataset()
         return self.__dataset[myindexing[0]:myindexing[1]]
-        if IndexError:
-            return []
