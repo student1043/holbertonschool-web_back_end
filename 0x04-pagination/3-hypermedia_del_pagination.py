@@ -52,5 +52,7 @@ class Server:
             infodict["index"] = index
             infodict["data"] = infolist
             infodict["page_size"] = page_size
-            infodict["next_index"] = index + page_size
+            infodict["next_index"] = index + page_size if index in \
+                self.__indexed_dataset else index + \
+                page_size + 1
             return infodict
