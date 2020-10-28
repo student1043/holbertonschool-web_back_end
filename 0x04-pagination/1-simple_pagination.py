@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-import csv
-import math
-from typing import List
 """
 Task 1 file
 """
+import csv
+import math
+from typing import List
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -49,6 +49,4 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         myindexing = index_range(page, page_size)
         self.dataset()
-        if self.__dataset is None:
-            return []
         return self.__dataset[myindexing[0]:myindexing[1]]
