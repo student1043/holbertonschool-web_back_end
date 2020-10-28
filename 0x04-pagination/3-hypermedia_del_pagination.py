@@ -43,7 +43,7 @@ class Server:
             """
             Getting Hyper Index
             """
-            assert index < len(self.__indexed_dataset)
+            assert isinstance(index, int) and index in range(len(self.__indexed_dataset))
             infolist = []
             count = 0
             indexer = index
