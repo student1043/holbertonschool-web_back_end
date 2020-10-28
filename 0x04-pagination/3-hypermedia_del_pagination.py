@@ -63,7 +63,7 @@ class Server:
                 nextindex = None
             infodict = {}
             infodict["index"] = index
-            infodict["data"] = infolist
-            infodict["page_size"] = len(infolist)
             infodict["next_index"] = nextindex
+            infodict["page_size"] = len(infolist)
+            infodict["data"] = infolist
             return infodict
