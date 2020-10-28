@@ -61,9 +61,6 @@ class Server:
                 nextindex = indexer
             else:
                 nextindex = None
-            infodict = {}
-            infodict["index"] = index
-            infodict["next_index"] = nextindex
-            infodict["page_size"] = len(infolist)
-            infodict["data"] = infolist
-            return infodict
+            return {'index': index, 'next_index': nextindex,
+                    'page_size': len(infolist),
+                    'data': infolist}
