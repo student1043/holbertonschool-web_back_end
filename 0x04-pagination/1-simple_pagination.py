@@ -38,10 +38,8 @@ class Server:
         """
         Getting Page
         """
-        assert isinstance(page, int)
-        assert isinstance(page_size, int)
-        assert page > 0
-        assert page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
         myindexing = index_range(page, page_size)
         self.dataset()
         return self.__dataset[myindexing[0]:myindexing[1]]
