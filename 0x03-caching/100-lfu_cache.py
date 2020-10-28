@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import collections
-from collections import Counter
 """
 LFU Task
 """
@@ -19,7 +17,6 @@ class LFUCache(BaseCaching):
         """
         super().__init__()
         self.queue = []
-        self.tracking = []
 
     def put(self, key, item):
         """
@@ -31,13 +28,18 @@ class LFUCache(BaseCaching):
                 self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    print("DISCARD:", (Counter(self.tracking).most_common()[-1][0]))
-                    save = self.queue.pop(self.queue.index(Counter(self.tracking).most_common()[-1][0]))
-                    del self.cache_data[save]
-                    self.tracking.pop(self.tracking.index(Counter(self.tracking).most_common()[-1][0]))
+                    keys = []
+                    values = []
+                    for k, v in sorted(self.cache_data.items(),
+                                   key=lambda x: x[1]):
+                        keys.append(k)
+                        values.append(v)
+                    index = values.index(min(values))
+                    least_freq = keys[index]
+                    del self.cache_data[least_freq]
+                    print("DISCARD: {}".format(least_freq))
                 self.cache_data[key] = item
             self.queue.append(key)
-            self.tracking.append(key)
 
     def get(self, key):
         """
@@ -46,6 +48,5 @@ class LFUCache(BaseCaching):
         if key in self.cache_data:
             self.queue.remove(key)
             self.queue.append(key)
-            self.tracking.append(key)
             return self.cache_data[key]
         return None
