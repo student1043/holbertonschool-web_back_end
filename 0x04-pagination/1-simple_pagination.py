@@ -49,4 +49,6 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         myindexing = index_range(page, page_size)
         self.dataset()
+        if self.__dataset is None:
+            return []
         return self.__dataset[myindexing[0]:myindexing[1]]
