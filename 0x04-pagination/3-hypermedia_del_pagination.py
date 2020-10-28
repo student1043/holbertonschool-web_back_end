@@ -45,14 +45,20 @@ class Server:
             """
             assert index < len(self.__indexed_dataset)
             infolist = []
-            for i in range(page_size):
-                if index + i in self.__indexed_dataset:
-                    infolist.append(self.__indexed_dataset[index + i])
+            count = 0
+            indexer = index
+            while count < page_size and indexer < len(self.__indexed_dataset):
+                if indexer in self.__indexed_dataset:
+                    infolist.append(self.__indexed_dataset[indexer])
+                    indexer += 1
+                    count += 1
+                else:
+                    indexer += 1
+            if indexer < len(self.__indexed_dataset):
+                nextindex = indexer
             infodict = {}
             infodict["index"] = index
             infodict["data"] = infolist
             infodict["page_size"] = page_size
-            infodict["next_index"] = index + page_size if index in \
-                self.__indexed_dataset else index + \
-                page_size + 1
+            infodict["next_index"] = nextindex
             return infodict
