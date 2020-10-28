@@ -57,6 +57,8 @@ class Server:
                     indexer += 1
             if indexer < len(self.__indexed_dataset):
                 nextindex = indexer
+            else:
+                nextindex = None
             infodict = {}
             infodict["index"] = index
             infodict["data"] = infolist
