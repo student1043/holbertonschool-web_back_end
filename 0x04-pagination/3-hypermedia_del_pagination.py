@@ -40,28 +40,28 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            """
-            Getting Hyper Index
-            Trying to fix these errors
-            before deadline
-            hope it works!
-            """
-            assert (isinstance(index, int)
-                    and index in range(len(self.__indexed_dataset)))
-            infolist = []
-            count = 0
-            indexer = index
-            while count < page_size and indexer < len(self.__indexed_dataset):
-                if indexer in self.__indexed_dataset:
-                    infolist.append(self.__indexed_dataset[indexer])
-                    indexer += 1
-                    count += 1
-                else:
-                    indexer += 1
-            if indexer < len(self.__indexed_dataset):
-                nextindex = indexer
+        """
+        Getting Hyper Index
+        Trying to fix these errors
+        before deadline
+        hope it works!
+        """
+        assert (isinstance(index, int)
+                and index in range(len(self.__indexed_dataset)))
+        infolist = []
+        count = 0
+        indexer = index
+        while count < page_size and indexer < len(self.__indexed_dataset):
+            if indexer in self.__indexed_dataset:
+                infolist.append(self.__indexed_dataset[indexer])
+                indexer += 1
+                count += 1
             else:
-                nextindex = None
-            return {'index': index, 'next_index': nextindex,
-                    'page_size': len(infolist),
-                    'data': infolist}
+                indexer += 1
+        if indexer < len(self.__indexed_dataset):
+            nextindex = indexer
+        else:
+            nextindex = None
+        return {'index': index, 'next_index': nextindex,
+                'page_size': len(infolist),
+                'data': infolist}
