@@ -43,12 +43,11 @@ class Server:
             """
             Getting Hyper Index
             """
+            assert index < len(self.__indexed_dataset)
             infolist = []
             for i in range(len(self.__indexed_dataset)):
-                infolist.append(self.__indexed_dataset[index + i])
-                if not self.__indexed_dataset[index + i]:
-                    pass
-            assert index < len(self.__indexed_dataset)
+                if index + i in self.__indexed_dataset:
+                    infolist.append(self.__indexed_dataset[index + i])
             infodict = {}
             infodict["index"] = index
             infodict["data"] = infolist
