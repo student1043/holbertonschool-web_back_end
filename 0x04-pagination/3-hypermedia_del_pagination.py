@@ -45,7 +45,7 @@ class Server:
             """
             assert index < len(self.__indexed_dataset)
             infolist = []
-            for i in range(len(self.__indexed_dataset)):
+            for i in range(page_size):
                 if index + i in self.__indexed_dataset:
                     infolist.append(self.__indexed_dataset[index + i])
             infodict = {}
