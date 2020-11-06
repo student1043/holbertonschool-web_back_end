@@ -11,12 +11,12 @@ class Auth():
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ Requirement for Authentication
         """
+        if path is None or not excluded_paths:
+            return True
         if excluded_paths is not None and len(excluded_paths) > 0:
             item = [x[:-1] for x in excluded_paths]
             if path in item or path[:-1] in excluded_paths:
                 return False
-        if path is None or path not in excluded_paths:
-            return True
         if excluded_paths is None or len(excluded_paths) == 0:
             return True
         if path in excluded_paths:
