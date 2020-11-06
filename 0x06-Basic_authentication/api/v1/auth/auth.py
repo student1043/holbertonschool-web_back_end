@@ -12,9 +12,9 @@ class Auth():
         """ Requirement for Authentication
         """
         if excluded_paths is not None and len(excluded_paths) > 0:
-            for i in excluded_paths:
-                if i.__contains__(path):
-                    return False
+            item = [x[:-1] for x in excluded_paths]
+            if path in item:
+                return False
         if path is None or path not in excluded_paths:
             return True
         if excluded_paths is None or len(excluded_paths) == 0:
