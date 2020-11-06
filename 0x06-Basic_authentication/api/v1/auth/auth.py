@@ -36,3 +36,8 @@ class Auth():
         """ Current User
         """
         return None
+
+
+class BasicAuth(Auth):
+    """ Basic Authentication
+    """
