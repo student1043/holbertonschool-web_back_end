@@ -13,7 +13,7 @@ class Auth():
         """
         if excluded_paths is not None and len(excluded_paths) > 0:
             item = [x[:-1] for x in excluded_paths]
-            if path in item:
+            if path in item or path[:-1] in excluded_paths:
                 return False
         if path is None or path not in excluded_paths:
             return True
