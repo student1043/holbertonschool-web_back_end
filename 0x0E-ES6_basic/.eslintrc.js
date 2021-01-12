@@ -26,6 +26,7 @@ module.exports = {
         'LabeledStatement',
         'WithStatement',
       ],
+      "import/extensions": [1, { "extensions": [".js", ".jsx"] }],
     },
     overrides:[
       {
