@@ -25,8 +25,6 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
-    'react/jsx-filename-extension': [0],
-    'import/extensions': 'off',
   },
   overrides: [
     {
