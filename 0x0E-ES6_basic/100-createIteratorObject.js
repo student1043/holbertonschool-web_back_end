@@ -1,4 +1,6 @@
 export default function createIteratorObject(report) {
-  const listing = report.allEmployees;
-  return listing;
+  for (const key in report.allEmployees) {
+    const lists = report.allEmployees[key];
+    return lists;
+  }
 }
