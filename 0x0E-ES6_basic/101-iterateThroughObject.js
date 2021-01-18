@@ -1,3 +1,3 @@
 export default function iterateThroughObject(reportWithIterator) {
-  return reportWithIterator.toString().replaceAll(',', ' | ');
+  return reportWithIterator.join(" | ")
 }
