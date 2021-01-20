@@ -10,8 +10,8 @@ export default class HolbertonCourse {
     } else {
       this._length = length;
     }
-    for (const s of students) {
-      if (typeof s !== 'string' && students !== null) {
+    for (let i = 0; i < students.length; i += 1) {
+      if (typeof students[i] !== 'string') {
         throw TypeError('Students must be an Array');
       } else {
         this._students = students;
@@ -48,8 +48,8 @@ export default class HolbertonCourse {
   }
 
   set students(students) {
-    for (const s of students) {
-      if (typeof s !== 'string' && s !== null) {
+    for (let i = 0; i < students.length; i += 1) {
+      if (typeof students[i] !== 'string') {
         throw TypeError('Students must be an Array');
       } else {
         this._students = students;
