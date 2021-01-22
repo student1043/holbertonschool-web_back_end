@@ -1,5 +1,5 @@
 export default function updateStudentGradeByCity(input, city, newGrades) {
-    return filter((localization) => localization.location === city).map(
-
+    return input.filter((localization) => localization.location === city).map(
+        newGrades.map(((person) => (person.studentId)))
     )
 }
