@@ -7,7 +7,7 @@ export default function cleanSet(set, startString) {
   }
   const allvalues = [];
   set.forEach((value) => {
-    if (value === 'string' && value.startsWith(startString)) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
       allvalues.push(value.slice(startString.length, value.length));
     }
   });
