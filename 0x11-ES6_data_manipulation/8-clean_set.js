@@ -7,10 +7,9 @@ export default function cleanSet(set, startString) {
   }
   const allvalues = [];
   set.forEach((value) => {
-    if (value.startsWith(startString)) {
+    if (value === 'string' && value.startsWith(startString)) {
       allvalues.push(value.slice(startString.length, value.length));
     }
   });
-  const mystr = allvalues.join('-');
-  return String(mystr);
+  return allvalues.join('-');
 }
