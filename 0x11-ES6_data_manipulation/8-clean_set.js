@@ -11,5 +11,6 @@ export default function cleanSet(set, startString) {
       allvalues.push(value.slice(startString.length, value.length));
     }
   });
-  return allvalues.join('-');
+  const mystr = allvalues.join('-');
+  return mystr;
 }
