@@ -5,6 +5,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return new Promise((resolve) => {
     resolve(signUpUser(firstName, lastName));
     resolve(uploadPhoto(fileName));
-    console.log();
-  });
+  }).catch(console.error());
 }
