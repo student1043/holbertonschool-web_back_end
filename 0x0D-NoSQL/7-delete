@@ -1,2 +1,2 @@
 // Remove
-db.school.remove({"name" : "Holberton school"}, false )
+db.school.deleteMany({"name" : "Holberton school"}, false )
