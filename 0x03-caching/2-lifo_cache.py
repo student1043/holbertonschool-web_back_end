@@ -1,42 +1,42 @@
 #!/usr/bin/python3
 """
-FIFO Task
+LIFO Task
 """
 
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
-    FIFO Class
+    LIFO Class
     """
 
     def __init__(self):
         """
-        FIFO Testing
+        LIFO Testing
         """
         super().__init__()
         self.queue = []
 
     def put(self, key, item):
         """
-        FIFO Tester
+        LIFO Tester
         """
         if key is not None and item is not None:
-            self.queue.append(key)
             if key in self.cache_data:
                 self.cache_data[key] = item
                 self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    del self.cache_data[self.queue[0]]
-                    print("DISCARD:", self.queue[0])
-                    self.queue.pop(0)
+                    del self.cache_data[self.queue[len(self.queue) - 1]]
+                    print("DISCARD:", self.queue[len(self.queue) - 1])
+                    self.queue.pop(len(self.queue) - 1)
                 self.cache_data[key] = item
+            self.queue.append(key)
 
     def get(self, key):
         """
-        FIFO GET
+        LIFO GET
         """
         if key in self.cache_data:
             return self.cache_data[key]

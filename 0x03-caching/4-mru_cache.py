@@ -1,43 +1,45 @@
 #!/usr/bin/python3
 """
-FIFO Task
+MRU Task
 """
 
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class MRUCache(BaseCaching):
     """
-    FIFO Class
+    MRU Class
     """
 
     def __init__(self):
         """
-        FIFO Testing
+        MRU INIT
         """
         super().__init__()
         self.queue = []
 
     def put(self, key, item):
         """
-        FIFO Tester
+        MRU PUT
         """
         if key is not None and item is not None:
-            self.queue.append(key)
             if key in self.cache_data:
                 self.cache_data[key] = item
                 self.queue.remove(key)
             else:
                 if len(self.cache_data) >= self.MAX_ITEMS:
-                    del self.cache_data[self.queue[0]]
-                    print("DISCARD:", self.queue[0])
-                    self.queue.pop(0)
+                    print("DISCARD:", self.queue[len(self.queue) - 1])
+                    save = self.queue.pop(len(self.queue) - 1)
+                    del self.cache_data[save]
                 self.cache_data[key] = item
+            self.queue.append(key)
 
     def get(self, key):
         """
-        FIFO GET
+        MRU GET
         """
         if key in self.cache_data:
+            self.queue.remove(key)
+            self.queue.append(key)
             return self.cache_data[key]
         return None
