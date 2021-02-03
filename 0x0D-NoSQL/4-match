@@ -1,2 +1,2 @@
 // Find items in school collection
-db.school.find(name="Holberton school")
+db.school.find({name="Holberton school"})
