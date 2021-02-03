@@ -1,0 +1,2 @@
+// Count items in school collection
+db.school.Count()
