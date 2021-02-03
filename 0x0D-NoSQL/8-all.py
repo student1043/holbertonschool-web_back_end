@@ -5,5 +5,7 @@
 def list_all(mongo_collection):
     """ listing all collection items """
     cursor = mongo_collection
-    for document in cursor.find():
-        return document
+    if cursor:
+        for document in cursor.find():
+            return document
+    return []
