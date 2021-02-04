@@ -11,7 +11,7 @@ if __name__ == "__main__":
     print("Methods:")
     method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for i in method:
-        print("\tmethod ", i, ": ", len(list(connection.find({"method": i}))))
+        print("\tmethod", i, ":", len(list(connection.find({"method": i}))))
 
     print(len(list(connection.find({"method": "GET"}, {"path": "/status"}))),
-          " status check")
+          "status check")
