@@ -17,5 +17,6 @@ if __name__ == "__main__":
           "status check")
 
     print("IPs:")
-    for ips in connection:
-        print(ips)
+    its = 0
+    while its <= 10:
+        print(connection["ip"])
