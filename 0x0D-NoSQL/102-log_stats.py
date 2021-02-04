@@ -19,4 +19,4 @@ if __name__ == "__main__":
     print("IPs:")
     its = 0
     while its <= 10:
-        print(connection["ip"])
+        print(connection.get("ip"))
