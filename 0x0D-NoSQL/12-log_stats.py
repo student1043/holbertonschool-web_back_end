@@ -13,5 +13,5 @@ if __name__ == "__main__":
     for i in method:
         print("\tmethod", i, ":", len(list(connection.find({"method": i}))))
 
-    print(len(list(connection.find({"method": "GET"}, {"path": "/status"}))),
+    print(len(list(connection.find({"method": "GET", "path": "/status"}))),
           "status check")
