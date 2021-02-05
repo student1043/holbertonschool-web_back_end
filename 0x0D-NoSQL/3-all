@@ -1,0 +1,2 @@
+// All items in school collection
+db.school.find()
