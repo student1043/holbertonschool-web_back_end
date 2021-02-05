@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ i18n project """
-from flask_babel import babel
+from flask_babel import Babel
 from flask import Flask, render_template
 app = Flask(__name__, template_folder='templates')
 
@@ -11,6 +11,7 @@ class Config:
     app.config['BABEL_DEFAULT_LOCALE'] = "en"
     app.config['BABEL_DEFAULT_TIMEZONE'] = "UTC"
 
+babel = Babel(app)
 
 @app.route('/')
 def home():
