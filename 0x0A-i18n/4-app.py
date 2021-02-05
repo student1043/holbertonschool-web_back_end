@@ -35,4 +35,4 @@ def home():
     """
     i18n project
     """
-    return render_template('3-index.html')
+    return render_template('4-index.html')
