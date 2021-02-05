@@ -25,6 +25,8 @@ def get_locale():
     """
     get locale language
     """
+    if request.url[-2:] in app.config["LANGUAGES"]:
+        return request.url[-2:]
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
@@ -34,7 +36,3 @@ def home():
     i18n project
     """
     return render_template('3-index.html')
-
-
-if __name__ == '__main__':
-    app.run()
