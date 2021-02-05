@@ -8,6 +8,7 @@ app = Flask(__name__, template_folder='templates')
 
 @babel.localeselector
 def get_locale():
+    """ get locale language"""
     return request.accept_languages.best_match(['fr', 'en'])
 
 
