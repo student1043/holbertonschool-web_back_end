@@ -11,7 +11,9 @@ def get_locale():
     """ get locale language"""
     return request.accept_languages.best_match(['fr', 'en'])
 
+
 babel = Babel(app)
+
 
 @app.route('/')
 def home():
