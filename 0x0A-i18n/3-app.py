@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """ i18n project """
-from flask_babel import Babel, gettext, ngettext
+from flask_babel import Babel, _
 from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder='templates')
