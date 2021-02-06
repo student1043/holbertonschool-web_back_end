@@ -6,6 +6,7 @@ from pymongo import MongoClient
 if __name__ == "__main__":
     client = MongoClient('mongodb://127.0.0.1:27017')
     connection = client.logs.nginx
+    totalips = {}
     storedips = list(connection.find())
     numofcollections = len(list(connection.find()))
     print(numofcollections, "logs")
@@ -19,4 +20,5 @@ if __name__ == "__main__":
 
     print("IPs:")
     for myips in storedips:
-        myips.get("ip")
+        totalips[myips.get["ip"]]
+
