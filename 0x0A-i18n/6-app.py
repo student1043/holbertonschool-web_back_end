@@ -38,7 +38,7 @@ def get_locale():
     pref = request.args.get('locale')
     if (pref is not None and pref in app.config["LANGUAGES"]):
         return pref
-    if (users[int(UID)]['locale'] is not None
+    if (UID is not None and users[int(UID)]['locale'] is not None
             and users[int(UID)]['locale'] in app.config["LANGUAGES"]):
         return users[int(UID)]['locale']
     return request.accept_languages.best_match(app.config["LANGUAGES"])
