@@ -6,6 +6,7 @@ from pymongo import MongoClient
 if __name__ == "__main__":
     client = MongoClient('mongodb://127.0.0.1:27017')
     connection = client.logs.nginx
+    storedips = list(connection.find())
     numofcollections = len(list(connection.find()))
     print(numofcollections, "logs")
     print("Methods:")
@@ -17,6 +18,4 @@ if __name__ == "__main__":
           "status check")
 
     print("IPs:")
-    its = 0
-    while its <= 10:
-        print(connection.get("ip"))
+    print(storedips)
