@@ -24,4 +24,4 @@ if __name__ == "__main__":
             totalips[myips.get("ip")] += 1
         else:
             totalips[myips.get("ip")] = 1
-    print(max(totalips, key=totalips.get))
+    print(max(totalips, value=totalips.get))
