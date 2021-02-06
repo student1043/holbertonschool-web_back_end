@@ -18,4 +18,5 @@ if __name__ == "__main__":
           "status check")
 
     print("IPs:")
-    print(storedips)
+    for myips in storedips:
+        myips.get("ip")
