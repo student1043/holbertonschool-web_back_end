@@ -15,5 +15,4 @@ def top_students(mongo_collection):
         mystudent["averageScore"] = total / len(student.get("topics"))
         students.append(mystudent)
     print(len(students))
-    sorted(students, key = lambda i: i["averageScore"], reverse = True)
-    return students
+    return sorted(students, key = lambda i: i["averageScore"], reverse = True)
