@@ -20,5 +20,7 @@ if __name__ == "__main__":
 
     print("IPs:")
     for myips in storedips:
-        totalips[myips.get["ip"]]
+        if myips.get("ip") in totalips:
+            totalips[myips.get("ip")] += 1
+        totalips[myips.get("ip")] = 1
 
