@@ -26,7 +26,8 @@ if __name__ == "__main__":
         else:
             totalips[myips.get("ip")] = 1
     while iters < 10:
-        maximum = max(totalips, key=totalips.get)
-        print("\t" + maximum + ":", totalips[maximum])
-        del totalips[maximum]
-        iters += 1
+        if totalips != {} and iters < 10:
+            maximum = max(totalips, key=totalips.get)
+            print("\t" + maximum + ":", totalips[maximum])
+            del totalips[maximum]
+            iters += 1
