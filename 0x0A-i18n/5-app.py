@@ -40,9 +40,11 @@ def get_user():
     """
     getting user ID
     """
-    if request.url[-10:-2] == "login_as" or (request.url[-1:]) in users:
-        return users[int(request.url[-1:])]
-    return None
+    UID = request.args.get('login_as')
+    if UID and int(UID) in users:
+        return users[int(UID)]
+    else:
+        return None
 
 
 @app.before_request
