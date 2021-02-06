@@ -35,8 +35,9 @@ def get_locale():
     get locale language from request URL, might change this later
     """
     UID = request.args.get('login_as')
-    if request.url[-2:] in app.config["LANGUAGES"]:
-        return request.url[-2:]
+    pref = request.args.get('locale')
+    if pref in app.config["LANGUAGES"]:
+        return pref
     elif users[int(UID)]['locale'] in app.config["LANGUAGES"]:
         return users[int(UID)]['locale']
     return request.accept_languages.best_match(app.config["LANGUAGES"])
