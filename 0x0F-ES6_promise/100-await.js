@@ -3,11 +3,10 @@ import uploadPhoto from './5-photo-reject';
 
 export default async function asyncUploadUser() {
     let myobject
-    try{
+    try {
         myobject = { photo: await uploadPhoto(),
         user: await signUpUser()}
-    }
-    catch{
+    } catch (err) {
         myobject = { photo: null,
         user: null}
     }
