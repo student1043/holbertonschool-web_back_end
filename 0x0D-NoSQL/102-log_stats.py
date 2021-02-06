@@ -22,5 +22,6 @@ if __name__ == "__main__":
     for myips in storedips:
         if myips.get("ip") in totalips:
             totalips[myips.get("ip")] += 1
-        totalips[myips.get("ip")] = 1
-
+        else:
+            totalips[myips.get("ip")] = 1
+    print(max(totalips[myips.get("ip")]))
