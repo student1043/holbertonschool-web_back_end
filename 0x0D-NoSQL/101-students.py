@@ -5,4 +5,7 @@ import pymongo
 
 def top_students(mongo_collection):
     """ Top Students """
-    return mongo_collection.find().sort("Score",pymongo.ASCENDING)
+    studentlist = list(mongo_collection.find())
+    students = []
+    for i in studentlist:
+        print(i)
