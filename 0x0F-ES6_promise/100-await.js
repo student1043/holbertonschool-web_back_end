@@ -1,12 +1,11 @@
-import signUpUser from './4-user-promise';
-import uploadPhoto from './5-photo-reject';
+import { uploadPhoto, createUser } from './utils';
 
 export default async function asyncUploadUser() {
   let myobject;
   try {
     myobject = {
       photo: await uploadPhoto(),
-      user: await signUpUser(),
+      user: await createUser(),
     };
   } catch (err) {
     myobject = {
