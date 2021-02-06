@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-""" i18n project """
+"""
+Task 5 of i18n project, making user login and changing
+the method of request
+"""
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 babel = Babel(app)
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -16,7 +19,7 @@ users = {
 
 class Config:
     """
-    Config Class
+    Config Class for languages and timezones!
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -29,7 +32,7 @@ app.config.from_object(Config())
 @babel.localeselector
 def get_locale():
     """
-    get locale language
+    get locale language from request URL, might change this later
     """
     if request.url[-2:] in app.config["LANGUAGES"]:
         return request.url[-2:]
@@ -38,7 +41,7 @@ def get_locale():
 
 def get_user():
     """
-    getting user ID
+    getting user ID through request.args.get and returning it
     """
     UID = request.args.get('login_as')
     if UID and int(UID) in users:
@@ -50,7 +53,7 @@ def get_user():
 @app.before_request
 def before_request():
     """
-    before request
+    before request that sets the g.user to the function we made get_user
     """
     g.user = get_user()
 
@@ -58,7 +61,8 @@ def before_request():
 @app.route('/')
 def home():
     """
-    i18n project
+    the main function of our app this should be updated with the latest
+    index file
     """
     return render_template('5-index.html')
 
