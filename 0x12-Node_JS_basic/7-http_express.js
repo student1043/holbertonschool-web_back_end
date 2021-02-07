@@ -1,5 +1,6 @@
 const express = require('express');
 const countStudents = require('./3-read_file_async');
+
 const app = express();
 
 app.get('/', (req, res) => {
@@ -7,7 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-	countStudents(process.argv[2])
+  res.send(countStudents(process.argv[2]));
 });
 
 app.listen(1245);
